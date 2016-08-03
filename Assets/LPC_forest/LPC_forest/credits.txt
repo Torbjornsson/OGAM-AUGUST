@@ -1,13 +1,3 @@
-# OGAM-AUGUST
-Keyword: level-up
-
-Authors:
-David Torbjörnsson
-Hannes Häggander
-
-Assets:
-Attribute Stephen "Redshrike" Challener as graphic artist and William.Thompsonj as contributor. If reasonable link to this page or the OGA homepage. http://opengameart.org/content/lpc-goblin
-Attribution to Stephen "Redshrike" Challener and a link to www.OpenGameArt.org For Sinbad, attribution to Zi Ye for the design.
 Forest_tiles.png
 = Grass and flower tiles (CC-BY-SA) =
  * Based on LPC's Grass made by Lanea Zimmerman (Sharm)
