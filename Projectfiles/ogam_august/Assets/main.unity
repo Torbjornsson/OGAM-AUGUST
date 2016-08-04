@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 342689023}
   - 212: {fileID: 342689022}
+  - 65: {fileID: 342689024}
   m_Layer: 0
   m_Name: enemy
   m_TagString: Untagged
@@ -144,6 +145,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!65 &342689024
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342689021}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1017956553
 GameObject:
   m_ObjectHideFlags: 0
@@ -300,6 +313,7 @@ GameObject:
   - 4: {fileID: 2055340392}
   - 212: {fileID: 2055340391}
   - 114: {fileID: 2055340393}
+  - 65: {fileID: 2055340394}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -365,3 +379,15 @@ MonoBehaviour:
   down: 274
   left: 276
   right: 275
+--- !u!65 &2055340394
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2055340390}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}

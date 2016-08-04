@@ -23,7 +23,13 @@ public class player_movement : MonoBehaviour {
 
     void FixedUpdate()
     {
+        PreciseMovement();
+    }
+
+    void PreciseMovement()
+    {
         transform.position = Vector3.Lerp(transform.position, moveToVector, moveLerp * Time.deltaTime);
+        if(Vector3.Distance(transform.position, moveToVector) < 0.2f) { transform.position = moveToVector; }
     }
 
     void PlayerDefinedMovement()
