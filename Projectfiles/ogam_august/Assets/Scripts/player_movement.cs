@@ -10,6 +10,8 @@ public class player_movement : MonoBehaviour {
     private int distance = 1;
     private Vector3 moveToVector = Vector3.zero;
     private float moveLerp = 10;
+    private bool okToMove = true;
+    private bool hMove, vMove;
 
     void Start()
     {
@@ -29,15 +31,19 @@ public class player_movement : MonoBehaviour {
     void PreciseMovement()
     {
         transform.position = Vector3.Lerp(transform.position, moveToVector, moveLerp * Time.deltaTime);
-        if(Vector3.Distance(transform.position, moveToVector) < 0.2f) { transform.position = moveToVector; }
+        okToMove = Vector3.Distance(transform.position, moveToVector) < 0.1f;
+        if (okToMove) { transform.position = moveToVector; } 
+        
     }
 
     void PlayerDefinedMovement()
     {
-        if (Input.GetButtonDown(horizontalAxis) ^ Input.GetButtonDown(verticalAxis))
+        hMove = Input.GetButtonDown(horizontalAxis);
+        vMove = Input.GetButtonDown(verticalAxis);
+        if (hMove ^ vMove && okToMove)
         {
-            moveToVector.x += Input.GetAxisRaw(horizontalAxis);
-            moveToVector.y += Input.GetAxisRaw(verticalAxis);
+            if (hMove) { moveToVector.x += Input.GetAxisRaw(horizontalAxis); }
+            if (vMove) { moveToVector.y += Input.GetAxisRaw(verticalAxis); }
             PerformedMovement();
         }
     }
