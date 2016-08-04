@@ -8,10 +8,7 @@ public class player_movement : MonoBehaviour {
     private string horizontalAxis = "Horizontal";
     private string verticalAxis = "Vertical";
     private int distance = 1;
-    private Vector3 tmpVector = Vector3.zero;
     private Vector3 moveToVector = Vector3.zero;
-    private bool horiActive = false;
-    private bool vertActive = false;
     private float moveLerp = 10;
 
     void Start()
