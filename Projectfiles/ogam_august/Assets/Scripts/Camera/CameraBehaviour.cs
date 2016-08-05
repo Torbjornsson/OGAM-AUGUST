@@ -7,7 +7,7 @@ public class CameraBehaviour : MonoBehaviour {
     private Vector3 tmpVec;
     private float slerpSpeed = 1000;
 
-    private float threshold = 3;
+    private float threshold = 15;
 
     void FixedUpdate()
     {
