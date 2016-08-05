@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class EndOfStage : MonoBehaviour {
 
+    [SerializeField]
+    private string NextLevel = "main";
+
 	void OnTriggerEnter(Collider c)
     {
-        Debug.Log(c.tag + " entered");
-        if (c.tag.Equals("Player"))
+        if (c.transform.tag.Equals("Player"))
         {
-            Debug.Log("Load next scene");
+            Debug.Log("Leave stage, loading " + NextLevel);
+            SceneManager.LoadScene(NextLevel);
         }
     }
-
 }

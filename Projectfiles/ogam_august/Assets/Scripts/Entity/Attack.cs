@@ -30,7 +30,8 @@ public class Attack : MonoBehaviour {
 
 	public virtual void WeaponAttack(GameObject g)
     {
-        Debug.Log("Needs to be overwritten" + gameObject.name);
+        EntityResources ER = g.GetComponent<EntityResources>();
+        if (ER) { ER.HealthRemove(Damage); }
     }
 
     protected void AttackFront()
@@ -51,6 +52,7 @@ public class Attack : MonoBehaviour {
         foreach(Collider k in c)
         {
             Debug.Log(k.gameObject.name + " hit ");
+            WeaponAttack(k.transform.root.gameObject);
         }
     }
 }
