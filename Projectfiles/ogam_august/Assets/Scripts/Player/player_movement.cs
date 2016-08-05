@@ -20,6 +20,7 @@ public class player_movement : MonoBehaviour {
 
     private bool okToMove = true;
     private bool hMove, vMove;
+    private bool posForceSet = false;
     
     private Quaternion rotateToQuat = Quaternion.identity;
 
@@ -54,15 +55,33 @@ public class player_movement : MonoBehaviour {
     // använd för allt som rör sig
     void FixedUpdate()
     {
-        PreciseMovement();
-        RotateToPoint();
+        if (ei)
+        {
+            if (ei.areEnemiesDone())
+            {
+                PreciseMovement();
+                RotateToPoint();
+            } 
+            
+        }
     }
 
     void PreciseMovement()
     {
-        transform.position = Vector3.Lerp(transform.position, moveToVector, moveLerp * Time.deltaTime);
-        okToMove = Vector3.Distance(transform.position, moveToVector) < 0.1f;
-        if (okToMove) { transform.position = moveToVector; }         
+        if(Vector3.Distance(transform.position, moveToVector) > 0.1f)
+        {
+            transform.position = Vector3.Lerp(transform.position, moveToVector, moveLerp * Time.deltaTime);
+            posForceSet = false;
+        }
+        else
+        {
+            if (!posForceSet)
+            {
+                posForceSet = true;
+                transform.position = moveToVector;
+                if (ei) { ei.MakeMove(); }
+            }
+        }   
     }
 
     void PlayerDefinedMovement()
@@ -75,7 +94,6 @@ public class player_movement : MonoBehaviour {
             if (hMove) { moveToVector.x += Input.GetAxisRaw(horizontalAxis); }
             if (vMove) { moveToVector.y += Input.GetAxisRaw(verticalAxis); }
             if (CheckSpace(moveToVector)) { moveToVector = tmpMov; }
-            PerformedMovement();
         }
     }
 
@@ -94,11 +112,6 @@ public class player_movement : MonoBehaviour {
         }
 
         return c.Length > 0;
-    }
-
-    void PerformedMovement()
-    {
-        if (ei) { ei.MakeMove(); }
     }
 
     void RotatePlayer()

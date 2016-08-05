@@ -31,7 +31,10 @@ public class Attack : MonoBehaviour {
     {
         if (Input.GetButtonDown(AttackInput))
         {
-            AttackFront();
+            if (ei.areEnemiesDone())
+            {
+                AttackFront();
+            }
         }
         if (!MasterObject)
         {

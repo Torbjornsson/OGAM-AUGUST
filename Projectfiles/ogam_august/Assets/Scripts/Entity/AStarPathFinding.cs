@@ -5,16 +5,26 @@ public class AStarPathFinding : MonoBehaviour {
 
     [SerializeField]
     private string searchForTag = "Player";
+
+    private float LerpSpeed = 20;
+    private float AggroRange = 20;
+
+    private bool moveFinished = false;
+
     private Transform tagTransform;
+
     private GameObject tmpGO;
 
     Vector3[] closestTiles = new Vector3[4];
     Vector3 closestPath;
-    
-    Vector3 currentPos;
-    Vector3 endPos;
+    Vector3 moveToPos;
 
     Collider[] cols;
+
+    void Start()
+    {
+        moveToPos = transform.position;
+    }
 
 	void Update ()
     {
@@ -25,9 +35,37 @@ public class AStarPathFinding : MonoBehaviour {
         }
 	}
 
+    void FixedUpdate()
+    {
+        if(Vector3.Distance(transform.position, moveToPos) > 0.1f)
+        {
+            moveFinished = false;
+            transform.position = Vector3.Lerp(transform.position, moveToPos, LerpSpeed * Time.deltaTime);
+        }
+        else
+        {
+            if (!moveFinished && moveToPos != transform.position)
+            {
+                moveFinished = true;
+                transform.position = moveToPos;
+            }
+        }
+    }
+
+    public bool finishedMove()
+    {
+        return moveFinished;
+    }
+
     public void PerformMove()
     {
-        transform.position = GetClosestAvailablePath();
+        if (tagTransform)
+        {
+            if(Vector3.Distance(transform.position, tagTransform.position) < AggroRange)
+            {
+                moveToPos = GetClosestAvailablePath();
+            }
+        }
     }
 
     Vector3 GetClosestAvailablePath()
