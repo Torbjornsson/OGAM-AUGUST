@@ -62,7 +62,6 @@ public class player_movement : MonoBehaviour {
                 PreciseMovement();
                 RotateToPoint();
             } 
-            
         }
     }
 

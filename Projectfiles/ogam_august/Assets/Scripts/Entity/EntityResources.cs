@@ -22,4 +22,9 @@ public class EntityResources : MonoBehaviour {
             Debug.Log(gameObject.name + " is dead, do something?");
         }
     }
+
+    public int GetHealth()
+    {
+        return Health;
+    }
 }

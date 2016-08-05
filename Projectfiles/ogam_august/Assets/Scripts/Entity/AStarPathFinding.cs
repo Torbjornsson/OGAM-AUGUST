@@ -19,6 +19,8 @@ public class AStarPathFinding : MonoBehaviour {
     Vector3 closestPath;
     Vector3 moveToPos;
 
+    EntityResources ER;
+
     Collider[] cols;
 
     void Start()
@@ -28,11 +30,14 @@ public class AStarPathFinding : MonoBehaviour {
 
 	void Update ()
     {
+        if (!ER) { ER = GetComponent<EntityResources>(); }
+
         if (!tagTransform)
         { 
             tmpGO = GameObject.FindGameObjectWithTag(searchForTag);
             if (tmpGO) { tagTransform = tmpGO.transform; }
         }
+
 	}
 
     void FixedUpdate()

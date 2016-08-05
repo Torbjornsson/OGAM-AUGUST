@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyInformation : MonoBehaviour {
 
-    private GameObject[] allEnemies;
+    private GameObject[] allEnemies = new GameObject[0];
     private AStarPathFinding aspf;
     private int counter = 0;
     [SerializeField]
@@ -12,13 +12,14 @@ public class EnemyInformation : MonoBehaviour {
     void Update()
     {
         if (aspf && !allEnemiesDone)
-        {
-            print("its " + aspf.gameObject.name + "'s turn");
+        {  
             if (aspf.finishedMove())
             {
                 Invoke("IncreaseASPF", 0.2f);
             }
-        }   
+        }
+
+        if (allEnemies.Length == 0) { allEnemiesDone = true; } 
     }
 
     public void MakeMove()
@@ -52,5 +53,15 @@ public class EnemyInformation : MonoBehaviour {
     public bool areEnemiesDone()
     {
         return allEnemiesDone;
+    }
+
+    public void invokeEnemyUpdate()
+    {
+        Invoke("ForceEnemyUpdate", 0.3f);
+    }
+
+    public void ForceEnemyUpdate()
+    {
+        allEnemies = GameObject.FindGameObjectsWithTag("Enemy");
     }
 }
