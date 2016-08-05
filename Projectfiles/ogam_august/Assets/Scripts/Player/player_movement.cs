@@ -7,16 +7,25 @@ public class player_movement : MonoBehaviour {
     private string verticalAxis = "Vertical";
     private string rotateXAxis = "RotateX";
     private string rotateYAxis = "RotateY";
+
     private int distance = 1;
+
     private Vector3 moveToVector = Vector3.zero;
+    private Vector3 tmpRot = Vector3.zero;
+
     private float moveLerp = 10;
-    private bool okToMove = true;
-    private bool hMove, vMove;
     private float rotX = 0;
     private float rotY = 0;
     private float rotateLerp = 10;
-    private Vector3 tmpRot = Vector3.zero;
+
+    private bool okToMove = true;
+    private bool hMove, vMove;
+    
     private Quaternion rotateToQuat = Quaternion.identity;
+
+    private GameObject MasterObject;
+
+    private EnemyInformation ei;
 
     void Start()
     {
@@ -33,6 +42,13 @@ public class player_movement : MonoBehaviour {
     {
         PlayerDefinedMovement();
         RotatePlayer();
+        if (!MasterObject)
+        {
+            MasterObject = GameObject.Find("MasterObject");   
+        } else if (!ei)
+        {
+            ei = MasterObject.GetComponentInChildren<EnemyInformation>();
+        }
     }
 
     // använd för allt som rör sig
@@ -82,7 +98,7 @@ public class player_movement : MonoBehaviour {
 
     void PerformedMovement()
     {
-        //Debug.Log("Movement Performed...");
+        if (ei) { ei.MakeMove(); }
     }
 
     void RotatePlayer()

@@ -4,11 +4,18 @@ using System.Collections;
 public class Attack : MonoBehaviour {
 
     public int Damage = 1;
-    private player_movement PM;
-    private Quaternion q = Quaternion.identity;
     private int zRot = 0;
+
+    private player_movement PM;
+
+    private Quaternion q = Quaternion.identity;
+
     private string AttackInput = "Jump";
+
     private Vector3 direction = Vector3.zero;
+
+    private GameObject MasterObject;
+    private EnemyInformation ei;
 
     void Start()
     {
@@ -25,6 +32,14 @@ public class Attack : MonoBehaviour {
         if (Input.GetButtonDown(AttackInput))
         {
             AttackFront();
+        }
+        if (!MasterObject)
+        {
+            MasterObject = GameObject.Find("MasterObject");
+        }
+        else if (!ei)
+        {
+            ei = MasterObject.GetComponentInChildren<EnemyInformation>();
         }
     }
 
@@ -54,5 +69,6 @@ public class Attack : MonoBehaviour {
             Debug.Log(k.gameObject.name + " hit ");
             WeaponAttack(k.transform.root.gameObject);
         }
+        ei.MakeMove();
     }
 }

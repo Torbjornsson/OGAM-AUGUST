@@ -65,8 +65,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\CameraBehaviour.cs" />
     <Compile Include="Assets\Scripts\Enemy\BasicResources.cs" />
+    <Compile Include="Assets\Scripts\Entity\AStarPathFinding.cs" />
     <Compile Include="Assets\Scripts\Entity\Attack.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityResources.cs" />
+    <Compile Include="Assets\Scripts\MasterObject\EnemyInformation.cs" />
     <Compile Include="Assets\Scripts\MasterObject\PlayerInformation.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerResources.cs" />
     <Compile Include="Assets\Scripts\Player\player_movement.cs" />
