@@ -35,7 +35,6 @@ public class Attack : MonoBehaviour {
 
     protected void AttackFront()
     {
-        Debug.Log("Attacking");
         q = PM.GetEntityRotation();
         zRot = (int) q.eulerAngles.z;
         direction = Vector3.zero;
