@@ -517,7 +517,7 @@ MonoBehaviour:
   UIHealthBar: {fileID: 834848678}
   UIHealthText: {fileID: 1622552338}
   doNotLoadOn:
-  - SetupScene
+  - 53657475705363656e65
 --- !u!1 &1110836092
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +875,8 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11421246, guid: d37f25fdce41fb94496d6f07c5b5e4ab, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d37f25fdce41fb94496d6f07c5b5e4ab, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1782525651 stripped
@@ -891,6 +892,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8962334e8fe122048a493fc512af2bb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1782525653 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 192440, guid: d37f25fdce41fb94496d6f07c5b5e4ab, type: 2}
+  m_PrefabInternal: {fileID: 1782525650}
+--- !u!114 &1782525654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1782525653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ac625d3b75b0cd40a8a845299a38d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2063056441

@@ -2,14 +2,14 @@
 using System.Collections;
 
 public class BasicResources : EntityResources {
-
-    [SerializeField]
-    private int MaxHealth = 5;
+    
     private EnemyInformation ei;
+    [SerializeField]
+    private int basicMaxHealth = 6;
 
     void Start()
     {
-        Health = MaxHealth;
+        Health = basicMaxHealth;
     }
 
     void Update()
@@ -28,7 +28,6 @@ public class BasicResources : EntityResources {
 
     public override void HealthRemove(int i)
     {
-        if (ei) { ei.ForceEnemyUpdate(); }
         base.HealthRemove(i);
     }
 
@@ -38,10 +37,5 @@ public class BasicResources : EntityResources {
         {
             Destroy(gameObject);
         }
-    }
-
-    void OnDestroy()
-    {
-        if (ei) { ei.invokeEnemyUpdate(); } else {  }
     }
 }

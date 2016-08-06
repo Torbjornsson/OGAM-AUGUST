@@ -266,8 +266,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 342689023}
   - 65: {fileID: 342689024}
-  - 114: {fileID: 342689022}
+  - 114: {fileID: 342689026}
   - 114: {fileID: 342689025}
+  - 114: {fileID: 342689022}
   m_Layer: 0
   m_Name: Enemy Goran
   m_TagString: Enemy
@@ -283,11 +284,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 342689021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8483618a9bb9bc3409be570f68899c3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9be62b8a5e0e87f40be6810ef4800876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 1
-  MaxHealth: 5
 --- !u!4 &342689023
 Transform:
   m_ObjectHideFlags: 0
@@ -326,6 +325,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   searchForTag: Player
+--- !u!114 &342689026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342689021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8483618a9bb9bc3409be570f68899c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 1
+  MaxHealth: 1
+  basicMaxHealth: 6
 --- !u!1001 &363420968
 Prefab:
   m_ObjectHideFlags: 0
@@ -1872,6 +1885,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1731394405}
   - 65: {fileID: 1731394404}
+  - 114: {fileID: 1731394406}
   - 114: {fileID: 1731394403}
   - 114: {fileID: 1731394402}
   m_Layer: 0
@@ -1889,10 +1903,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1731394401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52e141c956ce7b045bcb1c46d8ccb378, type: 3}
+  m_Script: {fileID: 11500000, guid: 9be62b8a5e0e87f40be6810ef4800876, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  searchForTag: Player
 --- !u!114 &1731394403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1901,11 +1914,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1731394401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8483618a9bb9bc3409be570f68899c3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e141c956ce7b045bcb1c46d8ccb378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 1
-  MaxHealth: 5
+  searchForTag: Player
 --- !u!65 &1731394404
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1932,6 +1944,20 @@ Transform:
   - {fileID: 1028686260}
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!114 &1731394406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1731394401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8483618a9bb9bc3409be570f68899c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 1
+  MaxHealth: 1
+  basicMaxHealth: 6
 --- !u!1001 &1769966047
 Prefab:
   m_ObjectHideFlags: 0

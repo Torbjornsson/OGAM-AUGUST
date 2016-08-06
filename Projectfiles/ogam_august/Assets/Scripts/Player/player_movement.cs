@@ -15,13 +15,14 @@ public class player_movement : MonoBehaviour {
     private float rotX = 0;
     private float rotY = 0;
     private float rotateLerp = 10;
-
-    private bool okToMove = true;
+    
     private bool hMove, vMove;
     private bool posForceSet = false;
     
     private Quaternion rotateToQuat = Quaternion.identity;
 
+    private GameObject MasterObject;
+    private EnemyInformation eInfo;
 
     void Start()
     {
@@ -36,6 +37,9 @@ public class player_movement : MonoBehaviour {
     // använd för allt som inte rör sig
 	void Update ()
     {
+        if (!MasterObject) { MasterObject = GameObject.Find("MasterObject"); }
+        else if (!eInfo) { eInfo = MasterObject.GetComponentInChildren<EnemyInformation>(); }
+
         PlayerDefinedMovement();
         RotatePlayer();
         
@@ -69,12 +73,23 @@ public class player_movement : MonoBehaviour {
     {
         hMove = Input.GetButtonDown(horizontalAxis);
         vMove = Input.GetButtonDown(verticalAxis);
-        if (hMove ^ vMove && okToMove)
+        if (hMove ^ vMove)
         {
             Vector3 tmpMov = moveToVector;
             if (hMove) { moveToVector.x += Input.GetAxisRaw(horizontalAxis); }
             if (vMove) { moveToVector.y += Input.GetAxisRaw(verticalAxis); }
-            if (CheckSpace(moveToVector)) { moveToVector = tmpMov; }
+            if (CheckSpace(moveToVector))
+            {
+                moveToVector = tmpMov;
+
+            } else {
+                if (eInfo)
+                {
+                    eInfo.OccupiedSpaces.Remove(transform.position);
+                    eInfo.OccupiedSpaces.Add(moveToVector);
+                    eInfo.MakeEnemiesPerformActions();
+                }
+            }
         }
     }
 
