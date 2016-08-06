@@ -18,7 +18,6 @@ public class HealthBar : MonoBehaviour {
     void OnLevelWasLoaded()
     {
         string sceneName = SceneManager.GetActiveScene().name;
-        print(sceneName);
         SetActiveToBool(true);
         foreach (string s in doNotLoadOn)
         {

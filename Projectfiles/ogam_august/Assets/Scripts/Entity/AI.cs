@@ -3,19 +3,9 @@ using System.Collections;
 
 public class AI : MonoBehaviour {
 
-    AStarPathFinding pathfinding;
-
-    void Update()
+    public virtual void PerformAction()
     {
-        if (!pathfinding)
-        {
-            pathfinding = gameObject.GetComponent<AStarPathFinding>();
-        }
-    }
-
-    public void PerformAction()
-    {
-        pathfinding.PerformMove();
+        print("Do something");
     }
 
 }

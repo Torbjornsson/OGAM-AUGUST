@@ -88,16 +88,8 @@ public class AStarPathFinding : MonoBehaviour {
 
         if (eInfo)
         {
-            print("========> " + gameObject.name + " <=====");
-
             eInfo.OccupiedSpaces.Remove(transform.position);
             eInfo.OccupiedSpaces.Add(closestPath);
-
-            foreach(Vector3 v in eInfo.OccupiedSpaces)
-            {
-                print(v);
-            }
-            print("removed: " + transform.position + " added: " + closestPath);
         }
         return closestPath;
     }
