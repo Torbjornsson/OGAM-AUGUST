@@ -5,14 +5,31 @@ public class EntityResources : MonoBehaviour {
 
     [SerializeField]
     protected int Health = 1;
+    [SerializeField]
+    protected int MaxHealth = 1;
 
     public virtual void HealthRemove(int i)
     {
         if(i >= 0)
         {
             Health -= i;
+            ControlHealthValues();
             DeathCheck();
         }
+    }
+
+    public virtual void HealthIncrease(int i)
+    {
+        if(i >= 0)
+        {
+            Health += i;
+            ControlHealthValues();
+        }
+    }
+
+    private void ControlHealthValues()
+    {
+        Health = Mathf.Clamp(Health, 0, MaxHealth);
     }
 
     public virtual void DeathCheck()

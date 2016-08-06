@@ -10,6 +10,7 @@ public class AStarPathFinding : MonoBehaviour {
     private float AggroRange = 20;
 
     private bool moveFinished = false;
+    private bool inPosition = true;
 
     private Transform tagTransform;
 
@@ -19,23 +20,25 @@ public class AStarPathFinding : MonoBehaviour {
     Vector3 closestPath;
     Vector3 moveToPos;
 
-    EntityResources ER;
-
     Collider[] cols;
 
     void Start()
     {
         moveToPos = transform.position;
+        inPosition = false;
     }
 
 	void Update ()
     {
-        if (!ER) { ER = GetComponent<EntityResources>(); }
 
         if (!tagTransform)
         { 
             tmpGO = GameObject.FindGameObjectWithTag(searchForTag);
             if (tmpGO) { tagTransform = tmpGO.transform; }
+        }
+        else
+        {
+            if(Vector3.Distance(transform.position, tagTransform.position) < 0.5f) { inPosition = true; moveFinished = true; }
         }
 
 	}
@@ -44,14 +47,12 @@ public class AStarPathFinding : MonoBehaviour {
     {
         if(Vector3.Distance(transform.position, moveToPos) > 0.1f)
         {
-            moveFinished = false;
             transform.position = Vector3.Lerp(transform.position, moveToPos, LerpSpeed * Time.deltaTime);
         }
         else
         {
             if (!moveFinished && moveToPos != transform.position)
             {
-                moveFinished = true;
                 transform.position = moveToPos;
             }
         }
@@ -68,6 +69,7 @@ public class AStarPathFinding : MonoBehaviour {
         {
             if(Vector3.Distance(transform.position, tagTransform.position) < AggroRange)
             {
+                inPosition = false;
                 moveToPos = GetClosestAvailablePath();
             }
         }

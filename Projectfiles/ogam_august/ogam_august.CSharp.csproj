@@ -68,10 +68,13 @@
     <Compile Include="Assets\Scripts\Entity\AStarPathFinding.cs" />
     <Compile Include="Assets\Scripts\Entity\Attack.cs" />
     <Compile Include="Assets\Scripts\Entity\EntityResources.cs" />
+    <Compile Include="Assets\Scripts\General\KeepOnLoad.cs" />
     <Compile Include="Assets\Scripts\MasterObject\EnemyInformation.cs" />
     <Compile Include="Assets\Scripts\MasterObject\PlayerInformation.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerResources.cs" />
     <Compile Include="Assets\Scripts\Player\player_movement.cs" />
+    <Compile Include="Assets\Scripts\UserInterface\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\UserInterface\UserInterfaceUtilities.cs" />
     <Compile Include="Assets\Scripts\World\EndOfStage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

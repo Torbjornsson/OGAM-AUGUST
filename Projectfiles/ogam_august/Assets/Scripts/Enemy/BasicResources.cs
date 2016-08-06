@@ -19,7 +19,9 @@ public class BasicResources : EntityResources {
             GameObject go = GameObject.Find("MasterObject");
             if (go)
             {
+                print(go.name);
                 ei = go.GetComponentInChildren<EnemyInformation>();
+                if (!ei) { print("Why not found "); }
             }
         }
     }
@@ -40,6 +42,6 @@ public class BasicResources : EntityResources {
 
     void OnDestroy()
     {
-        if (ei) { ei.invokeEnemyUpdate(); } else { print("missing ei"); }
+        if (ei) { ei.invokeEnemyUpdate(); } else {  }
     }
 }

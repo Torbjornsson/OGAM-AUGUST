@@ -14,9 +14,6 @@ public class Attack : MonoBehaviour {
 
     private Vector3 direction = Vector3.zero;
 
-    private GameObject MasterObject;
-    private EnemyInformation ei;
-
     void Start()
     {
         if (!PM) { PM = GetComponent<player_movement>(); }
@@ -31,18 +28,7 @@ public class Attack : MonoBehaviour {
     {
         if (Input.GetButtonDown(AttackInput))
         {
-            if (ei.areEnemiesDone())
-            {
-                AttackFront();
-            }
-        }
-        if (!MasterObject)
-        {
-            MasterObject = GameObject.Find("MasterObject");
-        }
-        else if (!ei)
-        {
-            ei = MasterObject.GetComponentInChildren<EnemyInformation>();
+            AttackFront();
         }
     }
 
@@ -72,6 +58,5 @@ public class Attack : MonoBehaviour {
             Debug.Log(k.gameObject.name + " hit ");
             WeaponAttack(k.transform.root.gameObject);
         }
-        ei.MakeMove();
     }
 }

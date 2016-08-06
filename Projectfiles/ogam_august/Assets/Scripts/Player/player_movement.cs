@@ -8,8 +8,6 @@ public class player_movement : MonoBehaviour {
     private string rotateXAxis = "RotateX";
     private string rotateYAxis = "RotateY";
 
-    private int distance = 1;
-
     private Vector3 moveToVector = Vector3.zero;
     private Vector3 tmpRot = Vector3.zero;
 
@@ -24,9 +22,6 @@ public class player_movement : MonoBehaviour {
     
     private Quaternion rotateToQuat = Quaternion.identity;
 
-    private GameObject MasterObject;
-
-    private EnemyInformation ei;
 
     void Start()
     {
@@ -43,26 +38,14 @@ public class player_movement : MonoBehaviour {
     {
         PlayerDefinedMovement();
         RotatePlayer();
-        if (!MasterObject)
-        {
-            MasterObject = GameObject.Find("MasterObject");   
-        } else if (!ei)
-        {
-            ei = MasterObject.GetComponentInChildren<EnemyInformation>();
-        }
+        
     }
 
     // använd för allt som rör sig
     void FixedUpdate()
     {
-        if (ei)
-        {
-            if (ei.areEnemiesDone())
-            {
-                PreciseMovement();
-                RotateToPoint();
-            } 
-        }
+        PreciseMovement();
+        RotateToPoint();
     }
 
     void PreciseMovement()
@@ -78,7 +61,6 @@ public class player_movement : MonoBehaviour {
             {
                 posForceSet = true;
                 transform.position = moveToVector;
-                if (ei) { ei.MakeMove(); }
             }
         }   
     }

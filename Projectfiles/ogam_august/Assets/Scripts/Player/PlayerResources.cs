@@ -3,12 +3,12 @@ using System.Collections;
 
 public class PlayerResources : EntityResources {
 
-    [SerializeField]
-    private int MaxHealth = 20;
+    private int playerMaxHealth = 20;
 
 	void Start()
     {
-        Health = MaxHealth;
+        MaxHealth = playerMaxHealth;
+        Health = playerMaxHealth;
     }
 
     public override void DeathCheck()
@@ -17,5 +17,16 @@ public class PlayerResources : EntityResources {
         {
             Debug.Log("Player is dead");
         }
+    }
+
+    public int GetMaxHealth()
+    {
+        return MaxHealth;
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.H)) { HealthRemove(10); }
+        if (Input.GetKeyDown(KeyCode.J)) { HealthIncrease(5); }
     }
 }
