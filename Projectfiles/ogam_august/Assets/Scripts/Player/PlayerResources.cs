@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class PlayerResources : EntityResources {
@@ -15,7 +16,8 @@ public class PlayerResources : EntityResources {
     {
         if(Health <= 0)
         {
-            Debug.Log("Player is dead");
+            Debug.Log("Player is dead, reloading scene...");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

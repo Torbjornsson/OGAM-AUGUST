@@ -5,9 +5,13 @@ public class MeleeAI : AI {
 
     AStarPathFinding pathfinding;
 
+    private GameObject playerToHit;
+
+    private int damage = 2;
+
     void Start()
     {
-        print("melee ai start");
+        playerToHit = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -16,12 +20,39 @@ public class MeleeAI : AI {
         {
             pathfinding = gameObject.GetComponent<AStarPathFinding>();
         }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            PerformAction();
+        }
     }
 
     public override void PerformAction()
     {
-        print("melee ai stuff");
-        pathfinding.PerformMove();
+        if (IsPlayerClose())
+        {
+            playerToHit.GetComponent<EntityResources>().HealthRemove(damage);       
+        }
+        else
+        {
+            pathfinding.PerformMove();
+        }
+    }
+
+    private bool IsPlayerClose()
+    {
+        if (playerToHit)
+        {
+            if(playerToHit.transform.position == (transform.position + Vector3.up) ||
+                playerToHit.transform.position == (transform.position + Vector3.right) ||
+                playerToHit.transform.position == (transform.position + Vector3.down) ||
+                playerToHit.transform.position == (transform.position + Vector3.left) )
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }

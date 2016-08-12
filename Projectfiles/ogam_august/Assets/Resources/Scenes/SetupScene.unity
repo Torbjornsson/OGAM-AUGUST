@@ -259,7 +259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8962334e8fe122048a493fc512af2bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: houseHome
 --- !u!114 &474522824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8962334e8fe122048a493fc512af2bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: houseHome
 --- !u!114 &713754592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,7 +595,7 @@ MonoBehaviour:
   UIHealthBar: {fileID: 834848678}
   UIHealthText: {fileID: 1622552338}
   doNotLoadOn:
-  - 53657475705363656e65
+  - SetupScene
 --- !u!1 &928897889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1127,6 +1125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b26ec8035a8fa14c91fdf36a40c2cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneToLoad: main
   mocExperience: 0
   mocCompletedLevel: 0
 --- !u!1 &1622552336
