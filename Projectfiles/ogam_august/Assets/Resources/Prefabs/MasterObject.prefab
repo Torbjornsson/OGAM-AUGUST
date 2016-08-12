@@ -25,6 +25,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 453188}
   - 114: {fileID: 11466348}
+  - 114: {fileID: 11424540}
   m_Layer: 0
   m_Name: MasterObject
   m_TagString: Untagged
@@ -89,6 +90,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 453188}
   m_RootOrder: 0
+--- !u!114 &11424540
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b26ec8035a8fa14c91fdf36a40c2cd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneToLoad: main
+  mocExperience: 0
+  mocCompletedLevel: 0
 --- !u!114 &11425306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,9 +137,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8962334e8fe122048a493fc512af2bb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: main
-  exp: 0
-  completedLevel: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

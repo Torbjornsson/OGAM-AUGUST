@@ -12,6 +12,7 @@ public class EndOfStage : MonoBehaviour {
         if (c.transform.tag.Equals("Player"))
         {
             Debug.Log("Leave stage, loading " + NextLevel);
+            MasterObjectControl.masterObject.Save();
             SceneManager.LoadScene(NextLevel);
         }
     }

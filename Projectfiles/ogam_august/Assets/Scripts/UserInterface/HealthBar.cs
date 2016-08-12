@@ -12,6 +12,12 @@ public class HealthBar : MonoBehaviour {
     private float healthSegmentDrop = 0.1f;
     int textHealthint = 0;
 
+    public int lvl = 1;
+    public int lvlScalar = 100;
+    private int tmpExp = 0;
+
+    public Slider expBar;
+
     [SerializeField]
     private string[] doNotLoadOn = { "SetupScene" };
 
@@ -56,6 +62,23 @@ public class HealthBar : MonoBehaviour {
                     textHealthint = (int) (UIHealthBar.value + 0.1f);
                     UIHealthText.text = textHealthint.ToString();
                 }
+            }
+            if (expBar)
+            {
+
+                if(tmpExp != MasterObjectControl.masterObject.mocExperience)
+                {
+                        tmpExp = MasterObjectControl.masterObject.mocExperience;
+                        int myExp = tmpExp;
+                        while (myExp > (lvlScalar * lvl))
+                        {
+                            myExp -= (lvlScalar * lvl);
+                            lvl++;
+                        }
+                        expBar.maxValue = lvlScalar * lvl;
+                        expBar.value = myExp % (lvlScalar * lvl-1);
+                        expBar.value = Mathf.Clamp(expBar.value, 0, lvlScalar * lvl);
+                }                
             }
         }
 

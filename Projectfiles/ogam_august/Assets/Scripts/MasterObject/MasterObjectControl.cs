@@ -16,6 +16,9 @@ public class MasterObjectControl : MonoBehaviour {
     public int mocCompletedLevel = 0;
     public ArrayList mocItems = new ArrayList();
 
+    public string canvasPath = "Prefabs/UICanvasBase";
+    public string eventPath = "Prefabs/Eventsystem";
+
 	void Awake()
     {
         filePath = Application.persistentDataPath + "/PlayerData.dat";
@@ -23,6 +26,11 @@ public class MasterObjectControl : MonoBehaviour {
         {
             DontDestroyOnLoad(gameObject);
             masterObject = this;
+            GameObject tmpgo = Resources.Load<GameObject>(canvasPath);
+            Instantiate(tmpgo);
+            GameObject eventsys = Resources.Load<GameObject>(eventPath);
+            Instantiate(eventsys);
+            Load();
         }
         else if (masterObject != this)
         {
@@ -46,9 +54,8 @@ public class MasterObjectControl : MonoBehaviour {
         if (playerData.PlayerExp <= 0) { playerData.PlayerExp = 0; }
         else { playerData.PlayerExp = mocExperience; }
 
-        if (playerData.CompletedLevel <= 0) { playerData.CompletedLevel = 0; }
-        else { playerData.CompletedLevel = mocCompletedLevel; }
-
+        playerData.PlayerExp = mocExperience;
+        playerData.CompletedLevel = mocCompletedLevel;
         playerData.items = mocItems;
 
         binform.Serialize(file, playerData);
@@ -61,7 +68,7 @@ public class MasterObjectControl : MonoBehaviour {
         if (!File.Exists(filePath)) { print("Game file not found " + filePath); return; }
         BinaryFormatter binform = new BinaryFormatter();
         FileStream file = File.Open(filePath, FileMode.Open);
-        PlayerData playerData = (PlayerData)binform.Deserialize(file);
+        PlayerData playerData = (PlayerData) binform.Deserialize(file);
         file.Close();
 
         mocExperience = playerData.PlayerExp;

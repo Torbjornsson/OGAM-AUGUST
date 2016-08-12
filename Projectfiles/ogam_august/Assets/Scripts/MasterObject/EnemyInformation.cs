@@ -6,6 +6,11 @@ public class EnemyInformation : MonoBehaviour {
     GameObject[] allEnemies;
     public ArrayList OccupiedSpaces = new ArrayList();
 
+    void OnLevelWasLoaded(int i)
+    {
+        OccupiedSpaces.Clear();
+    }
+
     public void MakeEnemiesPerformActions()
     {
         allEnemies = GameObject.FindGameObjectsWithTag("Enemy");

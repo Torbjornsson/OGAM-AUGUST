@@ -266,9 +266,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 342689023}
   - 65: {fileID: 342689024}
-  - 114: {fileID: 342689026}
   - 114: {fileID: 342689025}
   - 114: {fileID: 342689022}
+  - 114: {fileID: 342689026}
   m_Layer: 0
   m_Name: Enemy Goran
   m_TagString: Enemy
@@ -333,12 +333,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 342689021}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8483618a9bb9bc3409be570f68899c3c, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e989fc1e5c38c24ab61561580e99649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 1
+  Health: 0
   MaxHealth: 1
-  basicMaxHealth: 6
+  BaseExp: 1
+  EnemyMaxHealth: 5
 --- !u!1001 &363420968
 Prefab:
   m_ObjectHideFlags: 0
@@ -853,7 +854,8 @@ Prefab:
       propertyPath: m_Name
       value: Enemy Glenn
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11418946, guid: ae2ec3d30095ab649b93f56e0813e65c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ae2ec3d30095ab649b93f56e0813e65c, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &808876747
@@ -1728,6 +1730,25 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 433064, guid: 43a8de976bac6da40a91f00e7e44f9af, type: 2}
   m_PrefabInternal: {fileID: 1461113117}
+--- !u!1 &1467484220 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 126550, guid: ae2ec3d30095ab649b93f56e0813e65c, type: 2}
+  m_PrefabInternal: {fileID: 714679600}
+--- !u!114 &1467484221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1467484220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e989fc1e5c38c24ab61561580e99649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 0
+  MaxHealth: 1
+  BaseExp: 1
+  EnemyMaxHealth: 5
 --- !u!1 &1718711688
 GameObject:
   m_ObjectHideFlags: 0
